@@ -12,7 +12,9 @@ uint8_t keypad_scan() {
 	for(uint8_t col = 0;col < 4;col++)
 	{
 		PORTA |= 0xF0;
+		_delay_us(3);
 		PORTA &=  ~(1 << (col + 4)); //stan niski na jednej kolumnie
+		_delay_us(3);
 		for(uint8_t row = 0; row < 4 ; row++)
 		{
 			uint8_t odczyt = PINA & 0x0F;
